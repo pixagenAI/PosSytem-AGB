@@ -1,9 +1,18 @@
 import withPWA from "next-pwa";
 
-const nextConfig = withPWA({
-  dest: "public",
-  register: true,
-  skipWaiting: true,
-});
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  experimental: {
+    appDir: true
+  }
+};
 
-export default nextConfig;
+export default withPWA({
+  ...nextConfig,
+  pwa: {
+    dest: "public",
+    register: true,
+    skipWaiting: true
+  }
+});
